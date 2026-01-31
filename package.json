@@ -1,0 +1,17 @@
+{
+  "name": "rgvaipro-site",
+  "version": "1.0.0",
+  "description": "RGV AI PRO website with AI chat widget",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "build": "echo \"No build step required\"",
+    "vercel:dev": "vercel dev"
+  },
+  "dependencies": {
+    "openai": "^4.28.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
