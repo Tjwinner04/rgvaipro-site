@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navLinks } from "@/content/marketing";
+import { navbarTopLinks, servicesDropdownLinks } from "@/content/marketing";
 import {
   CONTACT_EMAIL_PUBLIC,
   CONTACT_PHONE,
@@ -49,19 +49,58 @@ export function Navbar() {
         </Link>
 
         <nav
-          className="relative z-10 col-span-2 hidden min-h-10 min-w-0 items-center justify-center justify-self-stretch overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:flex lg:pl-1 [&::-webkit-scrollbar]:hidden"
+          className="relative z-10 col-span-2 hidden min-h-10 min-w-0 items-center justify-center justify-self-stretch overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:flex lg:overflow-visible lg:pl-1 [&::-webkit-scrollbar]:hidden"
           aria-label="Main"
         >
-          <div className="flex shrink-0 items-center gap-0.5 px-1">
-            {navLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="inline-flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 xl:px-3"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="flex shrink-0 items-center gap-0.5 px-1 lg:overflow-visible">
+            <Link
+              href="/"
+              className="inline-flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 xl:px-3"
+            >
+              Home
+            </Link>
+            <details className="group relative">
+              <summary className="inline-flex h-10 cursor-pointer list-none items-center gap-0.5 whitespace-nowrap rounded-full px-2.5 text-sm font-medium text-slate-600 marker:hidden transition hover:bg-slate-100 hover:text-slate-900 xl:px-3 [&::-webkit-details-marker]:hidden">
+                Services
+                <svg
+                  className="h-4 w-4 shrink-0 text-slate-500 transition group-open:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </summary>
+              <div className="absolute left-0 top-full z-50 mt-1 min-w-[13.5rem] rounded-xl border border-slate-200 bg-white py-1 shadow-lg ring-1 ring-slate-900/5">
+                <ul className="py-0.5" role="list">
+                  {servicesDropdownLinks.map((sub) => (
+                    <li key={sub.href}>
+                      <Link
+                        href={sub.href}
+                        className="block px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900"
+                      >
+                        {sub.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+            {navbarTopLinks
+              .filter((item) => item.href !== "/")
+              .map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 xl:px-3"
+                >
+                  {item.label}
+                </Link>
+              ))}
           </div>
         </nav>
 
@@ -101,15 +140,39 @@ export function Navbar() {
             </summary>
             <div className="absolute right-0 mt-2 w-64 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
               <nav className="flex flex-col gap-1" aria-label="Mobile">
-                {navLinks.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                <Link
+                  href="/"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                >
+                  Home
+                </Link>
+                <details className="rounded-lg">
+                  <summary className="cursor-pointer list-none rounded-lg px-3 py-2 text-sm font-medium text-slate-700 marker:hidden hover:bg-slate-50 [&::-webkit-details-marker]:hidden">
+                    Services
+                  </summary>
+                  <div className="mt-0.5 flex flex-col border-l-2 border-slate-100 pl-3 ml-3">
+                    {servicesDropdownLinks.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        className="rounded-lg py-2 pr-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+                {navbarTopLinks
+                  .filter((item) => item.href !== "/")
+                  .map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 {SAAS_APP_COMING_SOON ? (
                   <span className="rounded-lg px-3 py-2 text-sm font-medium text-slate-500">
                     Open the SaaS Tool · Coming soon

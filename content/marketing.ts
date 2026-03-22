@@ -167,6 +167,25 @@ export const serviceInterestOptions = [
   { value: "general", label: "General inquiry" },
 ] as const;
 
+/** Shown under “Services” in the navbar (desktop dropdown + mobile submenu). */
+export const servicesDropdownLinks = [
+  { href: "/services", label: "All services" },
+  { href: "/website-design", label: "Website Design" },
+  { href: "/ai-automations", label: "AI Automations" },
+] as const;
+
+/**
+ * Top-level navbar items excluding service detail pages — those live under the Services dropdown.
+ */
+export const navbarTopLinks = [
+  { href: "/", label: "Home" },
+  { href: "/business-audit-reports", label: "Reports" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+/** Full list for footer “Explore” and anywhere else that needs every destination. */
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },

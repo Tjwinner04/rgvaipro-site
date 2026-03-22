@@ -31,7 +31,7 @@ export const CONTACT_EMAIL_PUBLIC =
  */
 export const CONTACT_PHONE =
   (typeof process.env.NEXT_PUBLIC_CONTACT_PHONE === "string" && process.env.NEXT_PUBLIC_CONTACT_PHONE.trim()) ||
-  "956-502-0132";
+  "956-502-0123";
 
 /** Full profile URLs. Set matching `NEXT_PUBLIC_SOCIAL_*` vars in `.env.local`; empty = icon hidden. */
 export const SOCIAL_URLS = {
