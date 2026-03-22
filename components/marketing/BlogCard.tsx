@@ -17,13 +17,13 @@ export function BlogCard({ slug, title, excerpt, date, category }: BlogCardProps
       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{category}</p>
       <p className="mt-2 text-xs text-slate-500">{date}</p>
       <h3 className="mt-3 text-lg font-semibold text-slate-900">
-        <Link href={`/blog#post-${slug}`} className="hover:underline">
+        <Link href={`/blog/${slug}`} className="hover:underline">
           {title}
         </Link>
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{excerpt}</p>
       <Link
-        href={`/blog#post-${slug}`}
+        href={`/blog/${slug}`}
         className="mt-4 text-sm font-semibold text-slate-900 underline-offset-4 hover:underline"
       >
         Read more

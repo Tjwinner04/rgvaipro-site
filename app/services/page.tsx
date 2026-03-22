@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { ServiceCard } from "@/components/marketing/ServiceCard";
 import { coreSolutions } from "@/content/marketing";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -57,7 +58,21 @@ export default function ServicesPage() {
             title="Stay fast, secure, and up to date"
             description="We handle the technical upkeep so broken plugins, slow pages, and surprise downtime don’t cost you leads."
           />
-          <ul className="mt-6 list-inside list-disc space-y-2 text-slate-600">
+          <figure className="mt-10 max-w-4xl overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm ring-1 ring-slate-900/5">
+            <Image
+              src="/hosting-namecheap.png"
+              alt="Example shared hosting plans interface: fast, secure hosting options for small business websites"
+              width={1600}
+              height={900}
+              className="h-auto w-full"
+              sizes="(max-width: 896px) 100vw, 896px"
+            />
+            <figcaption className="border-t border-slate-200 bg-white px-4 py-3 text-sm text-slate-500">
+              We pair dependable hosting with ongoing maintenance so your site stays fast, backed up,
+              and ready for customers—not just “online.”
+            </figcaption>
+          </figure>
+          <ul className="mt-10 list-inside list-disc space-y-2 text-slate-600">
             <li>Managed hosting tuned for small business sites</li>
             <li>Security and backup hygiene</li>
             <li>Content tweaks, fixes, and improvements on a regular cadence</li>

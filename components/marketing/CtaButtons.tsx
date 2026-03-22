@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { EXTERNAL_SAAS_APP_URL, SAAS_APP_COMING_SOON } from "@/lib/config";
 
 type PrimaryProps = {
   href: string;
@@ -46,5 +47,46 @@ export function CtaSecondary({ href, children, external, className = "" }: Secon
     <Link href={href} className={`${base} ${className}`}>
       {children}
     </Link>
+  );
+}
+
+type SaasToolButtonProps = {
+  /** `light` = hero / white areas; `dark` = slate-900 band */
+  variant?: "light" | "dark";
+  className?: string;
+};
+
+/** SaaS product CTA: real link when live, disabled “Coming soon” pill when `SAAS_APP_COMING_SOON`. */
+export function SaasToolButton({ variant = "light", className = "" }: SaasToolButtonProps) {
+  if (SAAS_APP_COMING_SOON) {
+    const soonBase =
+      variant === "dark"
+        ? "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-300"
+        : "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-6 py-3 text-sm font-semibold text-slate-500 shadow-sm";
+    return (
+      <span
+        className={`${soonBase} cursor-default ${className}`}
+        role="status"
+        aria-label="SaaS tool — coming soon"
+      >
+        Open the SaaS Tool
+        <span className="text-xs font-medium opacity-80">Coming soon</span>
+      </span>
+    );
+  }
+
+  const darkClasses =
+    variant === "dark"
+      ? "!border-white/40 !bg-transparent !text-white hover:!bg-white/10"
+      : "";
+
+  return (
+    <CtaSecondary
+      href={EXTERNAL_SAAS_APP_URL}
+      external
+      className={`${darkClasses} ${className}`.trim()}
+    >
+      Open the SaaS Tool
+    </CtaSecondary>
   );
 }

@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/marketing/ContactForm";
 import { PageHeader } from "@/components/marketing/PageHeader";
-import { CONTACT_EMAIL } from "@/lib/config";
+import { CONTACT_EMAIL_PUBLIC } from "@/lib/config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact us"
-        description={`Tell us what you are trying to improve—website, follow-up, leads, or reporting. We typically reply within one business day. You can also email ${CONTACT_EMAIL}.`}
+        description={`Tell us what you are trying to improve—website, follow-up, leads, or reporting. We typically reply within one business day. You can also email ${CONTACT_EMAIL_PUBLIC}.`}
       />
       <div className="mx-auto max-w-3xl px-4 py-16 md:px-6 lg:px-8">
         <ContactForm

@@ -1,7 +1,7 @@
 import { BlogCard } from "@/components/marketing/BlogCard";
 import { BenefitCard } from "@/components/marketing/BenefitCard";
 import { ContactForm } from "@/components/marketing/ContactForm";
-import { CtaPrimary, CtaSecondary } from "@/components/marketing/CtaButtons";
+import { CtaPrimary, SaasToolButton } from "@/components/marketing/CtaButtons";
 import { SectionHeading } from "@/components/marketing/SectionHeading";
 import { ServiceCard } from "@/components/marketing/ServiceCard";
 import { VideoDemoCard } from "@/components/marketing/VideoDemoCard";
@@ -15,8 +15,8 @@ import {
   trustStripItems,
   whoItsFor,
 } from "@/content/marketing";
-import { EXTERNAL_SAAS_APP_URL } from "@/lib/config";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -32,9 +32,17 @@ export default function HomePage() {
       <section className="border-b border-slate-100 bg-gradient-to-b from-white to-slate-50">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 md:px-6 md:py-24 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 lg:px-8">
           <div className="space-y-5 lg:max-w-xl lg:col-start-1 lg:row-start-1">
-            <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-              RGV AI Pro
-            </p>
+            <div className="flex justify-start">
+              <Image
+                src="/800pxrgvaipro-newlogo-4.png"
+                alt="RGV AI Pro — Turn traffic into customers"
+                width={800}
+                height={500}
+                className="h-auto w-full max-w-full"
+                priority
+                sizes="(max-width: 1024px) 100vw, 36rem"
+              />
+            </div>
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-[2.75rem] lg:leading-tight">
               {homeHero.headline}
             </h1>
@@ -45,9 +53,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 lg:col-start-1 lg:row-start-2 lg:max-w-xl">
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <CtaPrimary href="/#contact-form">Get a Free Consultation</CtaPrimary>
-              <CtaSecondary href={EXTERNAL_SAAS_APP_URL} external>
-                Open the SaaS Tool
-              </CtaSecondary>
+              <SaasToolButton />
             </div>
             <p className="text-sm text-slate-500">
               Prefer to browse first?{" "}
@@ -216,13 +222,7 @@ export default function HomePage() {
             >
               Get a Free Consultation
             </CtaPrimary>
-            <CtaSecondary
-              href={EXTERNAL_SAAS_APP_URL}
-              external
-              className="!border-white/40 !bg-transparent !text-white hover:!bg-white/10"
-            >
-              Open the SaaS Tool
-            </CtaSecondary>
+            <SaasToolButton variant="dark" />
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { InlineCta } from "@/components/marketing/InlineCta";
 import { PageHeader } from "@/components/marketing/PageHeader";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "AI Automations",
@@ -15,13 +16,29 @@ export default function AiAutomationsPage() {
         title="AI automations that keep work moving"
         description="Connect lead capture, follow-up, and handoffs so your team spends time with customers—not copying data between tools."
       />
-      <article className="mx-auto max-w-3xl px-4 py-16 md:px-6 lg:px-8">
+      <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 lg:px-8">
         <div className="space-y-4 text-base leading-relaxed text-slate-600">
           <p>
             Automation should feel invisible: leads arrive, the right person gets notified, reminders
             go out, and nothing falls through the cracks. We design workflows around how your business
             already operates, then layer in AI where it saves real time.
           </p>
+
+          <figure className="my-10 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm ring-1 ring-slate-900/5">
+            <Image
+              src="/automationflow2.png"
+              alt="Example automation flow: form submission trigger, AI agent with connected tools and models, then conditional steps such as Slack actions"
+              width={1600}
+              height={900}
+              className="h-auto w-full"
+              sizes="(max-width: 896px) 100vw, 896px"
+            />
+            <figcaption className="border-t border-slate-200 bg-white px-4 py-3 text-center text-xs text-slate-500">
+              Example workflow: triggers, AI agents, tools, and follow-on actions—built to match how
+              your team actually works.
+            </figcaption>
+          </figure>
+
           <h2 className="pt-4 text-xl font-semibold text-slate-900">Common starting points</h2>
           <ul className="list-disc space-y-2 pl-5">
             <li>

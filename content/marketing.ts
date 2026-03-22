@@ -154,40 +154,7 @@ export const demoPreviews = [
   },
 ] as const;
 
-export const blogPreviewPosts = [
-  {
-    slug: "why-every-business-needs-a-better-website",
-    title: "Why every business needs a better website",
-    excerpt:
-      "Your site is your 24/7 salesperson. Here’s what “good enough” often leaves on the table.",
-    date: "Mar 12, 2025",
-    category: "Websites",
-  },
-  {
-    slug: "how-ai-automations-save-time",
-    title: "How AI automations save time (without replacing your team)",
-    excerpt:
-      "Practical ways to speed up follow-up, scheduling, and handoffs—starting small.",
-    date: "Mar 5, 2025",
-    category: "Automation",
-  },
-  {
-    slug: "what-a-social-audit-reveals",
-    title: "What a social audit reveals about your brand",
-    excerpt:
-      "The gaps, wins, and quick fixes we look for when reviewing your social presence.",
-    date: "Feb 26, 2025",
-    category: "Audits",
-  },
-  {
-    slug: "how-competitor-snapshots-help-businesses-grow",
-    title: "How competitor snapshots help businesses grow",
-    excerpt:
-      "Turn noisy market data into a short list of moves you can make this quarter.",
-    date: "Feb 18, 2025",
-    category: "Strategy",
-  },
-] as const;
+export { blogPreviewPosts } from "./blog-posts";
 
 export const serviceInterestOptions = [
   { value: "", label: "Select a service" },
